@@ -3,17 +3,13 @@ package helpers;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import static helpers.BrowserHelper.getDriver;
 
 public class InteractionHelper {
-    private static WebDriver driver = BrowserHelper.getDriver();
     private static final int defaultTimer = 30;
 
-    public static void refreshDriverObject() {
-        driver = BrowserHelper.getDriver();
-    }
-
     public static void scrollIntoView(WebElement element) {
-        JavascriptExecutor j = (JavascriptExecutor)driver;
+        JavascriptExecutor j = (JavascriptExecutor) getDriver();
         j.executeScript ("arguments[0].scrollIntoView({block: 'center'})", element);
     }
 
@@ -21,7 +17,7 @@ public class InteractionHelper {
         boolean clickedOnce = false;
         for (int i=0; i<10; i++) {
             try {
-                driver.switchTo().alert().accept();
+                getDriver().switchTo().alert().accept();
                 clickedOnce = true;
             } catch(NoAlertPresentException e) {
                 if (clickedOnce) {
@@ -34,17 +30,17 @@ public class InteractionHelper {
     }
 
     public static WebElement elX(String xpath) {
-        WebDriverWait wait = new WebDriverWait(driver, defaultTimer);
+        WebDriverWait wait = new WebDriverWait(getDriver(), defaultTimer);
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
     }
 
     public static WebElement el(String id) {
-        WebDriverWait wait = new WebDriverWait(driver, defaultTimer);
+        WebDriverWait wait = new WebDriverWait(getDriver(), defaultTimer);
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
     }
 
     public static void noElX(String xpath) {
-        WebDriverWait wait = new WebDriverWait(driver, defaultTimer);
+        WebDriverWait wait = new WebDriverWait(getDriver(), defaultTimer);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)));
     }
 }
