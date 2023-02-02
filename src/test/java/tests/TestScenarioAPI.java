@@ -2,17 +2,18 @@ package tests;
 
 import helpers.ApiHelper;
 import io.restassured.response.Response;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static helpers.UserHelper.generateUsername;
 import static helpers.UserHelper.getPassword;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestScenarioAPI {
     private final ApiHelper api = new ApiHelper();
 
     @Test
     public void addBookToCollectionViaAPI() {
+        System.out.println("=====API");
         String username = generateUsername();
         String password = getPassword();
 

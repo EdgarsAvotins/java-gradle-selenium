@@ -3,25 +3,21 @@ package tests;
 import helpers.ApiHelper;
 import helpers.BrowserHelper;
 import io.restassured.response.Response;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import pageObjects.BookPage;
-import pageObjects.navigationPages.BookStorePage;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
-import pageObjects.navigationPages.NavigationPage;
+import pageObjects.navigationPages.BookStorePage;
 import pageObjects.navigationPages.ProfilePage;
 
 import static helpers.InteractionHelper.acceptAlert;
 import static helpers.UserHelper.generateUsername;
 import static helpers.UserHelper.getPassword;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 public class TestScenarioUI {
     private final HomePage homePage = new HomePage();
@@ -31,15 +27,13 @@ public class TestScenarioUI {
     private final ProfilePage profilePage = new ProfilePage();
     private final ApiHelper api = new ApiHelper();
 
-    @Before
+    @BeforeEach
     public void setup() {
-        System.out.println("===SETUP");
         BrowserHelper.initializeDriver();
     }
 
-    @After
+    @AfterEach
     public void teardown() {
-        System.out.println("===TEARDOWN");
         BrowserHelper.closeDriver();
     }
 

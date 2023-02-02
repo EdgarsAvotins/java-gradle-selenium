@@ -5,8 +5,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class InteractionHelper {
-    private static final WebDriver driver = BrowserHelper.getDriver();
+    private static WebDriver driver = BrowserHelper.getDriver();
     private static final int defaultTimer = 30;
+
+    public static void refreshDriverObject() {
+        driver = BrowserHelper.getDriver();
+    }
 
     public static void scrollIntoView(WebElement element) {
         JavascriptExecutor j = (JavascriptExecutor)driver;

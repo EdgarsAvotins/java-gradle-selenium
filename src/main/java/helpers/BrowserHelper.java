@@ -3,6 +3,8 @@ package helpers;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import static helpers.InteractionHelper.refreshDriverObject;
+
 public class BrowserHelper {
     private static WebDriver driver;
 
@@ -11,7 +13,7 @@ public class BrowserHelper {
             System.out.println("===INITIALIZING");
             System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/src/main/resources/chromedriver");
             driver = new ChromeDriver();
-            System.out.println("===DONE");
+            refreshDriverObject();
         }
 
     }
@@ -30,7 +32,6 @@ public class BrowserHelper {
             System.out.println("===QUITTING");
             driver.quit();
             driver = null;
-            System.out.println("===DONE");
         }
     }
 }
