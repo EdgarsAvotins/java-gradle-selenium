@@ -14,15 +14,12 @@ public class InteractionHelper {
     }
 
     public static void acceptAlert() throws InterruptedException {
-        boolean clickedOnce = false;
+        Thread.sleep(300);
         for (int i=0; i<10; i++) {
             try {
                 getDriver().switchTo().alert().accept();
-                clickedOnce = true;
+                return;
             } catch(NoAlertPresentException e) {
-                if (clickedOnce) {
-                    return;
-                }
                 Thread.sleep(300);
             }
         }
