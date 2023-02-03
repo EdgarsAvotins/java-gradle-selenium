@@ -13,11 +13,9 @@ public class TestScenarioAPI {
 
     @Test
     public void addBookToCollectionViaAPI() {
-        System.out.println("=====API");
+        // Given user is created and userId saved
         String username = generateUsername();
         String password = getPassword();
-
-        // Given user is created and userId saved
         Response response = api.createUser(username, password);
         assertEquals(201, response.getStatusCode());
         String userId = response.jsonPath().getString("userID");

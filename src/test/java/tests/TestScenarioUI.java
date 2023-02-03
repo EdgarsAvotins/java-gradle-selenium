@@ -62,7 +62,7 @@ public class TestScenarioUI {
         assertTrue(profilePage.isAnyBookInCollection());
         assertEquals(profilePage.getFirstBookTitle(), bookTitle);
 
-        // Leave results visible for 5 seconds (JUST FOR DEMO PURPOSES)
+        // Uncomment next line if you wish to leave results visible for 5 seconds
         // Thread.sleep(5000);
     }
 
@@ -94,7 +94,7 @@ public class TestScenarioUI {
         // Then the book is no longer present in the collection
         profilePage.waitUntilBookNotInCollection(bookTitle);
 
-        // Leave results visible for 5 seconds (JUST FOR DEMO PURPOSES)
+        // Uncomment next line if you wish to leave results visible for 5 seconds
         // Thread.sleep(5000);
     }
 }
