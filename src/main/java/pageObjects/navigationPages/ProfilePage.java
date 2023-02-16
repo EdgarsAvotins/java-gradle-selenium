@@ -6,6 +6,7 @@ import static helpers.InteractionHelper.*;
 
 public class ProfilePage extends NavigationPage {
     private static final String addedBookXpath = "//div[@class='rt-tbody']//*[@role='row']//*[contains(@id,'see-book')]";
+    private static final String removeBookOkButtonXpath = "closeSmallModal-ok";
 
     public static boolean isAnyBookInCollection() {
         WebElement addedBook = elX(addedBookXpath);
@@ -21,11 +22,11 @@ public class ProfilePage extends NavigationPage {
         WebElement removeBookButton = elX("//div[@class='rt-tbody']//*[@role='row'][descendant::text()='" + title + "']//*[@id='delete-record-undefined']");
         removeBookButton.click();
 
-        WebElement removeBookOkButton = el("closeSmallModal-ok");
+        WebElement removeBookOkButton = el(removeBookOkButtonXpath);
         removeBookOkButton.click();
     }
 
     public static void waitUntilBookNotInCollection(String title) {
-        noElX(addedBookXpath);
+        noElX("//div[@class='rt-tbody']//*[@role='row'][descendant::text()='" + title + "']");
     }
 }

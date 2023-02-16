@@ -1,14 +1,14 @@
-package tests;
+package testsAPI;
 
 import dataObjects.User;
 import helpers.ApiHelper;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
-public class TestScenarioAPI {
+public class TestCollections {
 
     @Test
-    public void addBookToCollectionViaAPI() {
+    public void addBookToCollection() {
         // Given user is created and userId saved
         User user = new User();
         Response response = user.create();

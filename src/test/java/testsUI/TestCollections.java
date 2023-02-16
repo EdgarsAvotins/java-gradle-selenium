@@ -1,4 +1,4 @@
-package tests;
+package testsUI;
 
 import dataObjects.User;
 import extensions.UsingBrowserExtension;
@@ -9,7 +9,7 @@ import static stepDefinitions.UserSteps.*;
 import static stepDefinitions.BookCollectionSteps.*;
 
 
-public class TestScenarioUI {
+public class TestCollections {
     @Test @ExtendWith(UsingBrowserExtension.class)
     public void addBookToCollection() throws InterruptedException {
         User user = givenANewUserIsCreatedViaAPI();

@@ -10,11 +10,11 @@ Technologies and versions used while developing this project:
 - Allure v2.11.2
 
 ### Gradle commands
-Execute tests on clean environment and open the allure report:
+Execute testsUI on clean environment and open the allure report:
 
 `./gradlew clean test allureServe`
 
-You can separately execute the tests or publish the report:
+You can separately execute the testsUI or publish the report:
 
 `./gradlew clean test`
 
@@ -25,8 +25,8 @@ Add `--info` for more details on the execution:
 `./gradlew clean test --info`
 
 ### Tests
-These three tests have been automated, two UI focused tests and one API.
-High level information on the steps of each test can be found in src/test/java/tests .
+These three testsUI have been automated, two UI focused testsUI and one API.
+High level information on the steps of each test can be found in src/test/java/testsUI .
 
 #### TestScenarioAPI
 Scenario: As a user I am able to add a book to my collection
