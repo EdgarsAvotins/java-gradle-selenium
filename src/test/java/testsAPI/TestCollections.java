@@ -2,6 +2,7 @@ package testsAPI;
 
 import dataObjects.User;
 import helpers.ApiHelper;
+import io.qameta.allure.Step;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
