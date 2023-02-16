@@ -9,13 +9,15 @@ import static helpers.InteractionHelper.elX;
 import static helpers.InteractionHelper.scrollIntoView;
 
 public class BookStorePage extends NavigationPage{
-
+    private static final String loginButtonXpath = "//button[@id='login']";
+    private static final String bookList = "//div[@class='rt-tbody']//*[@role='row']";
+    private static final String bookInList = "//*[contains(@id,'see-book')]";
     public static void clickLoginButton() {
-        elX("//button[@id='login']").click();
+        elX(loginButtonXpath).click();
     }
 
     public static void openFirstBookInList() {
-        WebElement firstBookRowInList = elX("(//div[@class='rt-tbody']//*[@role='row'])[1]//*[contains(@id,'see-book')]");
+        WebElement firstBookRowInList = elX("(" + bookList + ")[0]" + bookInList);
         scrollIntoView(firstBookRowInList);
         firstBookRowInList.click();
     }

@@ -9,11 +9,10 @@ import static helpers.InteractionHelper.elX;
 import static helpers.InteractionHelper.scrollIntoView;
 
 public class NavigationPage {
-
     public static void clickSidebarButtonWithText(String buttonText) {
-        WebElement porfileSidebarButton = elX("//div[@class='accordion']//li[descendant::*[text()='" + buttonText + "']]");
-        scrollIntoView(porfileSidebarButton);
-        porfileSidebarButton.click();
+        WebElement profileSidebarButton = elX("//div[@class='accordion']//li[descendant::*[text()='" + buttonText + "']]");
+        scrollIntoView(profileSidebarButton);
+        profileSidebarButton.click();
     }
 
     public static void clickSidebarButtonForProfile() {

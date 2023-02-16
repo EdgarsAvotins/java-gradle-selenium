@@ -1,8 +1,12 @@
 package helpers;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoAlertPresentException;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import static helpers.BrowserHelper.getDriver;
 
 public class InteractionHelper {
@@ -18,7 +22,7 @@ public class InteractionHelper {
         long maxTime = 10000;
         long startTime = System.currentTimeMillis();
         long elapsedTime = 0;
-        long timeBetweenLoops = 250;
+        long timeBetweenLoops = 200;
 
         while (elapsedTime < maxTime) {
             if (isAlertVisible()) {
