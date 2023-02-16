@@ -1,9 +1,5 @@
 package pageObjects;
 
-import helpers.BrowserHelper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
 import static helpers.InteractionHelper.el;
 
 public class LoginPage {

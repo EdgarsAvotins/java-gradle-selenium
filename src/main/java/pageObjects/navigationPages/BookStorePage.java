@@ -1,8 +1,5 @@
 package pageObjects.navigationPages;
 
-import helpers.BrowserHelper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import static helpers.InteractionHelper.elX;

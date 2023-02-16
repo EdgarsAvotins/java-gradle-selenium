@@ -5,8 +5,6 @@ import io.restassured.response.Response;
 
 import java.time.Instant;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 public class User {
     private final String username;
     private final String password;

@@ -1,11 +1,9 @@
 package pageObjects;
 
-import helpers.BrowserHelper;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import static helpers.InteractionHelper.*;
+import static helpers.InteractionHelper.elX;
+import static helpers.InteractionHelper.scrollIntoView;
 
 public class BookPage {
     private static final String titleLabelXpath = "//*[@id='title-wrapper']//*[@id='userName-value']";
