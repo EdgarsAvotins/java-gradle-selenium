@@ -14,16 +14,33 @@ public class InteractionHelper {
     }
 
     public static void acceptAlert() throws InterruptedException {
-        Thread.sleep(300);
-        for (int i=0; i<10; i++) {
-            try {
+        boolean alertAppeared = false;
+        long maxTime = 10000;
+        long startTime = System.currentTimeMillis();
+        long elapsedTime = 0;
+        long timeBetweenLoops = 250;
+
+        while (elapsedTime < maxTime) {
+            if (isAlertVisible()) {
+                alertAppeared = true;
                 getDriver().switchTo().alert().accept();
+            } else if (alertAppeared) {
                 return;
-            } catch(NoAlertPresentException e) {
-                Thread.sleep(300);
             }
+            Thread.sleep(timeBetweenLoops);
+            elapsedTime = System.currentTimeMillis() - startTime;
         }
         throw new NoAlertPresentException();
+    }
+
+    public static boolean isAlertVisible() {
+        try {
+            getDriver().switchTo().alert();
+            return true;
+        }
+        catch (NoAlertPresentException Ex) {
+            return false;
+        }
     }
 
     public static WebElement elX(String xpath) {

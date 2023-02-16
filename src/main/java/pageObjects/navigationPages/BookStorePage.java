@@ -10,11 +10,11 @@ import static helpers.InteractionHelper.scrollIntoView;
 
 public class BookStorePage extends NavigationPage{
 
-    public void clickLoginButton() {
+    public static void clickLoginButton() {
         elX("//button[@id='login']").click();
     }
 
-    public void openFirstBookInList() {
+    public static void openFirstBookInList() {
         WebElement firstBookRowInList = elX("(//div[@class='rt-tbody']//*[@role='row'])[1]//*[contains(@id,'see-book')]");
         scrollIntoView(firstBookRowInList);
         firstBookRowInList.click();

@@ -1,44 +1,33 @@
 package tests;
 
+import dataObjects.User;
 import helpers.ApiHelper;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
-import static helpers.UserHelper.generateUsername;
-import static helpers.UserHelper.getPassword;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestScenarioAPI {
-    private final ApiHelper api = new ApiHelper();
 
     @Test
     public void addBookToCollectionViaAPI() {
         // Given user is created and userId saved
-        String username = generateUsername();
-        String password = getPassword();
-        Response response = api.createUser(username, password);
-        assertEquals(201, response.getStatusCode());
+        User user = new User();
+        Response response = user.create();
         String userId = response.jsonPath().getString("userID");
 
         // Given user is authenticated and token saved
-        response = api.authenticateUser(username, password);
-        assertEquals(200, response.getStatusCode());
-        assertEquals("Success", response.jsonPath().getString("status"));
+        response = ApiHelper.authenticateUserAndValidate(user.getUsername(), user.getPassword());
         String token = response.jsonPath().getString("token");
 
         // Given a book isbn has been received and saved
-        response = api.getBooks(username, password);
-        assertEquals(200, response.getStatusCode());
+        response = ApiHelper.getBooksAndValidate(user.getUsername(), user.getPassword());
         String isbn = response.jsonPath().getString("books[0].isbn");
 
         // When book is added to user
-        response = api.addBookToCollection(userId, isbn, token);
-        assertEquals(201, response.getStatusCode());
+        ApiHelper.addBookToCollectionAndValidate(userId, isbn, token);
 
         // Then the user has the book added to their collection
-        response = api.getUserById(userId, token);
-        assertEquals(200, response.getStatusCode());
-        assertEquals(userId, response.jsonPath().getString("userId"));
-        assertEquals(isbn, response.jsonPath().getString("books[0].isbn"));
+        ApiHelper.getUserByIdAndValidate(userId, token, isbn);
     }
 }

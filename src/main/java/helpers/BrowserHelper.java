@@ -16,7 +16,6 @@ public class BrowserHelper {
     }
 
     public static WebDriver getDriver() {
-        initializeDriver();
         return driver;
     }
 

@@ -9,12 +9,12 @@ import static helpers.InteractionHelper.*;
 
 public class BookPage {
 
-    public String getBookTitle() {
+    public static String getBookTitle() {
         WebElement titleLabel = elX("//*[@id='title-wrapper']//*[@id='userName-value']");
         return titleLabel.getText();
     }
 
-    public void addNewRecord() {
+    public static void addNewRecord() {
         WebElement addNewRecordButton = elX("//*[@id='addNewRecordButton'][text()='Add To Your Collection']");
         scrollIntoView(addNewRecordButton);
         addNewRecordButton.click();

@@ -7,22 +7,26 @@ import org.openqa.selenium.WebDriver;
 import static helpers.InteractionHelper.el;
 
 public class LoginPage {
-    public void inputDetailsAndSubmit(String username, String password) {
+    private static final String usernameFieldId = "userName";
+    private static final String passwordFieldId = "password";
+    private static final String loginButtonId = "login";
+
+    public static void inputDetailsAndSubmit(String username, String password) {
         setUserName(username);
         setPassword(password);
         submitLoginForm();
     }
 
-    public void setUserName(String username) {
-        el("userName").sendKeys(username);
+    public static void setUserName(String username) {
+        el(usernameFieldId).sendKeys(username);
     }
 
-    public void setPassword(String password) {
-        el("password").sendKeys(password);
+    public static void setPassword(String password) {
+        el(passwordFieldId).sendKeys(password);
     }
 
-    public void submitLoginForm() {
-        el("login").click();
+    public static void submitLoginForm() {
+        el(loginButtonId).click();
     }
 
 }

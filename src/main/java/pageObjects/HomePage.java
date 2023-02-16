@@ -10,14 +10,15 @@ import static helpers.InteractionHelper.elX;
 import static helpers.InteractionHelper.scrollIntoView;
 
 public class HomePage {
+    private static final String bookCategoryButtonXpath = "//div[@class='category-cards']//div[@class='card-body']/h5[text()='Book Store Application']";
 
-    public void openHomepage() {
+    public static void openHomepage() {
         navigateTo("https://demoqa.com/");
     }
 
-    public void clickBookCategory() {
-        WebElement bookCategory = elX("//div[@class='category-cards']//div[@class='card-body']/h5[text()='Book Store Application']");
-        scrollIntoView(bookCategory);
-        bookCategory.click();
+    public static void clickBookCategory() {
+        WebElement bookCategoryButton = elX(bookCategoryButtonXpath);
+        scrollIntoView(bookCategoryButton);
+        bookCategoryButton.click();
     }
 }
