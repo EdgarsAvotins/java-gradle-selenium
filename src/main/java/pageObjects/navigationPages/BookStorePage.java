@@ -17,7 +17,7 @@ public class BookStorePage extends NavigationPage{
     }
 
     public static void openFirstBookInList() {
-        WebElement firstBookRowInList = elX("(" + bookList + ")[0]" + bookInList);
+        WebElement firstBookRowInList = elX("(" + bookList + ")[1]" + bookInList);
         scrollIntoView(firstBookRowInList);
         firstBookRowInList.click();
     }

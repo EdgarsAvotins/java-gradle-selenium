@@ -1,5 +1,6 @@
 package helpers;
 
+import config.TestConfig;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.NoAlertPresentException;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static helpers.BrowserHelper.getDriver;
 
 public class InteractionHelper {
-    private static final int defaultTimer = 30;
+    private static final long defaultTimer = TestConfig.getDefaultTimeout();
 
     public static void scrollIntoView(WebElement element) {
         JavascriptExecutor j = (JavascriptExecutor) getDriver();
@@ -19,7 +20,7 @@ public class InteractionHelper {
 
     public static void acceptAlert() throws InterruptedException {
         boolean alertAppeared = false;
-        long maxTime = 10000;
+        long maxTime = defaultTimer * 1000 / 3;
         long startTime = System.currentTimeMillis();
         long elapsedTime = 0;
         long timeBetweenLoops = 200;
