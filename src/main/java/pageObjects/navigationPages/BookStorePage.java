@@ -6,15 +6,15 @@ import static helpers.InteractionHelper.elX;
 import static helpers.InteractionHelper.scrollIntoView;
 
 public class BookStorePage extends NavigationPage{
-    private static final String loginButtonXpath = "//button[@id='login']";
-    private static final String bookList = "//div[@class='rt-tbody']//*[@role='row']";
-    private static final String bookInList = "//*[contains(@id,'see-book')]";
+    private static final String LOGIN_BUTTON_XPATH = "//button[@id='login']";
+    private static final String BOOK_LIST = "//div[@class='rt-tbody']//*[@role='row']";
+    private static final String BOOK_IN_LIST = "//*[contains(@id,'see-book')]";
     public static void clickLoginButton() {
-        elX(loginButtonXpath).click();
+        elX(LOGIN_BUTTON_XPATH).click();
     }
 
     public static void openFirstBookInList() {
-        WebElement firstBookRowInList = elX("(" + bookList + ")[1]" + bookInList);
+        WebElement firstBookRowInList = elX("(" + BOOK_LIST + ")[1]" + BOOK_IN_LIST);
         scrollIntoView(firstBookRowInList);
         firstBookRowInList.click();
     }

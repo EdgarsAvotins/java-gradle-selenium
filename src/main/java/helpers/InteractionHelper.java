@@ -11,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static helpers.BrowserHelper.getDriver;
 
 public class InteractionHelper {
-    private static final long defaultTimer = TestConfig.getDefaultTimeout();
+    private static final long DEFAULT_TIMEOUT = TestConfig.getDefaultTimeout();
 
     public static void scrollIntoView(WebElement element) {
         JavascriptExecutor j = (JavascriptExecutor) getDriver();
@@ -20,7 +20,7 @@ public class InteractionHelper {
 
     public static void acceptAlert() throws InterruptedException {
         boolean alertAppeared = false;
-        long maxTime = defaultTimer * 1000 / 3;
+        long maxTime = DEFAULT_TIMEOUT * 1000 / 3;
         long startTime = System.currentTimeMillis();
         long elapsedTime = 0;
         long timeBetweenLoops = 200;
@@ -49,17 +49,17 @@ public class InteractionHelper {
     }
 
     public static WebElement elX(String xpath) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), defaultTimer);
+        WebDriverWait wait = new WebDriverWait(getDriver(), DEFAULT_TIMEOUT);
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(xpath)));
     }
 
     public static WebElement el(String id) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), defaultTimer);
+        WebDriverWait wait = new WebDriverWait(getDriver(), DEFAULT_TIMEOUT);
         return wait.until(ExpectedConditions.presenceOfElementLocated(By.id(id)));
     }
 
     public static void noElX(String xpath) {
-        WebDriverWait wait = new WebDriverWait(getDriver(), defaultTimer);
+        WebDriverWait wait = new WebDriverWait(getDriver(), DEFAULT_TIMEOUT);
         wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath(xpath)));
     }
 }

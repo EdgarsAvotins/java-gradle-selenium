@@ -1,15 +1,16 @@
 package helpers;
 
+import config.TestConfig;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ApiHelper {
-    private static final String base = "https://demoqa.com";
+    private static final String BASE = TestConfig.getDomainUrl();
 
     public static Response createUser(String username, String password) {
-        String url = base + "/Account/v1/User";
+        String url = BASE + "/Account/v1/User";
         String payload = "{\"userName\":\"" + username + "\",\"password\":\"" + password + "\"}";
         return RestAssured.given()
                 .header("Content-Type", "application/json")
@@ -24,7 +25,7 @@ public class ApiHelper {
     }
 
     public static Response authenticateUser(String username, String password) {
-        String url = base + "/Account/v1/GenerateToken";
+        String url = BASE + "/Account/v1/GenerateToken";
         String payload = "{\"userName\":\"" + username + "\",\"password\":\"" + password + "\"}";
         return RestAssured.given()
                 .header("Content-Type", "application/json")
@@ -40,7 +41,7 @@ public class ApiHelper {
     }
 
     public static Response getBooks(String username, String password) {
-        String url = base + "/BookStore/v1/Books";
+        String url = BASE + "/BookStore/v1/Books";
         return RestAssured.given()
                 .header("Content-Type", "application/json")
                 .get(url);
@@ -53,7 +54,7 @@ public class ApiHelper {
     }
 
     public static Response addBookToCollection(String userId, String isbn, String token) {
-        String url = base + "/BookStore/v1/Books";
+        String url = BASE + "/BookStore/v1/Books";
         String payload = "{\n" +
                 "  \"userId\": \"" + userId + "\",\n" +
                 "  \"collectionOfIsbns\": [\n" +
@@ -76,7 +77,7 @@ public class ApiHelper {
     }
 
     public static Response getUserById(String userId, String token) {
-        String url = base + "/Account/v1/User/" + userId;
+        String url = BASE + "/Account/v1/User/" + userId;
         return RestAssured.given()
                 .header("Content-Type", "application/json")
                 .header("Authorization", "Bearer " + token)

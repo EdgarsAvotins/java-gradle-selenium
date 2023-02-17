@@ -7,7 +7,6 @@ import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
 public class TestCollections {
-
     @Test
     public void addBookToCollection() {
         // Given user is created and userId saved

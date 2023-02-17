@@ -3,9 +3,9 @@ package pageObjects;
 import static helpers.InteractionHelper.el;
 
 public class LoginPage {
-    private static final String usernameFieldId = "userName";
-    private static final String passwordFieldId = "password";
-    private static final String loginButtonId = "login";
+    private static final String USERNAME_FIELD_ID = "userName";
+    private static final String PASSWORD_FIELD_ID = "password";
+    private static final String LOGIN_BUTTON_ID = "login";
 
     public static void inputDetailsAndSubmit(String username, String password) {
         setUserName(username);
@@ -14,15 +14,15 @@ public class LoginPage {
     }
 
     public static void setUserName(String username) {
-        el(usernameFieldId).sendKeys(username);
+        el(USERNAME_FIELD_ID).sendKeys(username);
     }
 
     public static void setPassword(String password) {
-        el(passwordFieldId).sendKeys(password);
+        el(PASSWORD_FIELD_ID).sendKeys(password);
     }
 
     public static void submitLoginForm() {
-        el(loginButtonId).click();
+        el(LOGIN_BUTTON_ID).click();
     }
 
 }
